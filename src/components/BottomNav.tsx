@@ -1,39 +1,11 @@
 import { useState } from 'react'
-import { Briefcase, User, DollarSign, Heart } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ButtonAction } from "@/components/ButtonAction"
-
-type NavItem = {
-  name: string;
-  icon: React.ElementType;
-  label: string;
-};
-
-const navItems: NavItem[] = [
-  {
-    name: 'work',
-    icon: Briefcase,
-    label: 'Work'
-  },
-  {
-    name: 'personal',
-    icon: User,
-    label: 'Personal'
-  },
-  {
-    name: 'money',
-    icon: DollarSign,
-    label: 'Money'
-  },
-  {
-    name: 'health',
-    icon: Heart,
-    label: 'Health'
-  },
-]
-
-type NavItemName = typeof navItems[number]['name'];
+import {
+  navItems,
+  type NavItemName
+} from "@/config/navigation"
 
 export default function BottomNav() {
   const [activeTab, setActiveTab] = useState<NavItemName>('work')
