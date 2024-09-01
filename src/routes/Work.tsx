@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { Container } from '../components/Container'
 import { CardTask } from '../components/Task/TaskCard'
 import { Task } from '../types/tasksTypes'
 import { getTasks } from '../data/tasksData.ts'
@@ -17,7 +18,7 @@ export function Work() {
   }, [])
 
   return (
-    <div className="space-y-4">
+    <Container>
       {workTasksList.map((task) => (
         <CardTask
           key={task.taskTitle}
@@ -29,8 +30,9 @@ export function Work() {
           timeStarted={task.timeStarted}
           timeEnded={task.timeEnded}
           status={task.status}
+          actions={task.actions}
         />
       ))}
-    </div>
+    </Container>
   )
 }
