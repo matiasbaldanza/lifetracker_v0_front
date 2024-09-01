@@ -9,7 +9,7 @@ export default function BottomNav() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 border-t bg-background border-border">
-      <nav className="relative flex items-center justify-around h-16 px-4">
+      <nav className="flex items-center justify-around h-16 px-4">
         {navItems.map(({ icon: Icon, label, path }) => (
           <Button
             key={path}
