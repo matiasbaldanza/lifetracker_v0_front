@@ -1,39 +1,24 @@
-import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import './App.css'
 import Layout from './components/Layout.tsx'
-import { CardTask } from './components/Task/TaskCard.tsx'
-import { getTasks } from './data/tasksData.ts'
-import { Task } from './types/tasksTypes.ts'
+import { Work } from './routes/Work'
+// import { Personal } from './routes/Personal'
+// import { Money } from './routes/Money'
+// import { Health } from './routes/Health'
 
 function App() {
-  const [tasksList, setTasksList] = useState<Task[]>([])
-
-  useEffect(() => {
-    const fetchTasks = async () => {
-      const tasks = await getTasks()
-      setTasksList(tasks)
-    }
-    fetchTasks()
-  }, [])
-
   return (
-    <Layout>
-      <div className="space-y-4">
-        {tasksList.map((task) => (
-          <CardTask
-            key={task.taskTitle}
-            taskTitle={task.taskTitle}
-            taskCategory={task.taskCategory}
-            taskDescription={task.taskDescription}
-            estimatedTime={task.estimatedTime}
-            actualTime={task.actualTime}
-            timeStarted={task.timeStarted}
-            timeEnded={task.timeEnded}
-            status={task.status}
-          />
-        ))}
-      </div>
-    </Layout>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Navigate to="/work" replace />} />
+          <Route path="/work" element={<Work />} />
+          {/* <Route path="/personal" element={<Personal tasks={tasksList} />} />
+          <Route path="/money" element={<Money tasks={tasksList} />} />
+          <Route path="/health" element={<Health tasks={tasksList} />} /> */}
+        </Routes>
+      </Layout>
+    </Router>
   )
 }
 

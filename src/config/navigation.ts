@@ -1,32 +1,32 @@
 import { Briefcase, User, DollarSign, Heart } from 'lucide-react'
 
 type NavItem = {
-  name: string;
+  path: string;
   icon: React.ElementType;
   label: string;
 };
 
 export const navItems: NavItem[] = [
   {
-    name: 'work',
+    path: '/work',
     icon: Briefcase,
-    label: 'Work'
+    label: 'Work',
   },
   {
-    name: 'personal',
+    path: '/personal',
     icon: User,
-    label: 'Personal'
+    label: 'Personal',
   },
   {
-    name: 'money',
+    path: '/money',
     icon: DollarSign,
-    label: 'Money'
+    label: 'Money',
   },
   {
-    name: 'health',
+    path: '/health',
     icon: Heart,
-    label: 'Health'
+    label: 'Health',
   },
 ]
 
-export type NavItemName = typeof navItems[number]['name'];
+export type NavItemName = typeof navItems[number]['path'];
